@@ -84,7 +84,7 @@
                             <div>
                                 <label for="email" class="block text-sm mb-2 dark:text-white">Email address</label>
                                 <div class="relative">
-                                    <input type="email" id="email" name="email"
+                                    <input type="email" id="emaillogin" name="email"
                                         class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
                                         required aria-describedby="email-error">
                                     <div
@@ -109,7 +109,7 @@
                                         href="#">Forgot password?</a>
                                 </div>
                                 <div class="relative">
-                                    <input type="password" id="password" name="password"
+                                    <input type="password" id="passwordlogin" name="password"
                                         class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
                                         required aria-describedby="password-error">
                                     <div
@@ -138,8 +138,8 @@
                             </div>
                             <!-- End Checkbox -->
 
-                            <button type="submit"
-                                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
+                            <button type="submit" id="buttonlogin" name="buttonlogin" onclick= postSignup()
+                                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800 ">
                                 Sign in
                             </button>
                         </div>
@@ -151,5 +151,6 @@
     </main>
 </body>
 <script src="node_modules/preline/dist/preline.js"></script>
+<script src="../apps/js/postfunction.js"></script>
 
 </html>
