@@ -17,11 +17,12 @@ export default function PostSignUp() {
 
 function responseData(result) {
   console.log("test", result.message);
-  //   setInner("pesan", result.message);
-  setCookieWithExpireHour("token", result.token, 2);
-  //   if (setCookieWithExpireHour("token", result.token, 2) == null) {
-  //     console.log(result.message);
-  //   } else {
-  //     window.location.href = "index.html";
-  //   }
+
+  if (result.token) {
+    setCookieWithExpireHour("token", result.token, 2);
+    // setInner("pesan", result.message);
+    window.location.href = "index.html";
+  } else {
+    alert("login gagal");
+  }
 }
