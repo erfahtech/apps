@@ -16,13 +16,29 @@ export default function PostSignUp() {
 }
 
 function responseData(result) {
-  console.log("test", result.message);
-
   if (result.token) {
+    // Jika memiliki token, simpan token di cookie
     setCookieWithExpireHour("token", result.token, 2);
-    // setInner("pesan", result.message);
-    window.location.href = "index.html";
+    // Simpan pesan hasil respons di local storage
+    // localStorage.setItem("message", result.message);
+
+    // Tampilkan SweetAlert berhasil login
+    Swal.fire({
+      icon: "success",
+      title: "Login Successful",
+      text: "You have successfully logged in.",
+    }).then((result) => {
+      if (result.isConfirmed || result.isDismissed) {
+        // Redirect to homePelamar.html setelah menekan OK pada SweetAlert
+        window.location.href = "./index.html";
+      }
+    });
   } else {
-    alert("login gagal");
+    // Jika tidak memiliki token, tampilkan SweetAlert pesan kesalahan
+    Swal.fire({
+      icon: "error",
+      title: "Login Failed",
+      text: result.message,
+    });
   }
 }
