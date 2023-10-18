@@ -22,8 +22,6 @@ function responseData(result) {
   if (result.token == "") {
     console.log(result.message);
   } else {
-    if (berhasilMendapatkanTokenBaru) {
-      window.location.href = "index.html";
-    }
+    window.location.href = "index.html";
   }
 }
