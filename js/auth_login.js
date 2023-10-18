@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const token = getCookie("token");
   
-    // Jika tidak ada token, redirect ke halaman signIn.html
+    // Jika tidak ada token, redirect ke halaman login.html
     if (!token) {
-      // Jika tidak ada token, tampilkan SweetAlert dan redirect ke halaman signIn.html
+      // Jika tidak ada token, tampilkan SweetAlert dan redirect ke halaman login.html
       if (!token) {
         Swal.fire({
           icon: "warning",
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
           text: "Anda belum login!",
           confirmButtonText: "OK",
         }).then(() => {
-          window.location.href = "signIn.html";
+          window.location.href = "login.html";
         });
       }
     }
