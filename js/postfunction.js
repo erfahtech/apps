@@ -19,7 +19,7 @@ function responseData(result) {
   console.log("test", result.message);
   //   setInner("pesan", result.message);
   setCookieWithExpireHour("token", result.token, 2);
-  if (result.tokenvalue == "") {
+  if (setCookieWithExpireHour("token", result.token, 2) == null) {
     console.log(result.message);
   } else {
     window.location.href = "index.html";
