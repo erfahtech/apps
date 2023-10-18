@@ -19,5 +19,11 @@ function responseData(result) {
   console.log("test", result.message);
   //   setInner("pesan", result.message);
   setCookieWithExpireHour("token", result.token, 2);
-  window.location.href = "index.html";
+  if (result.token == "") {
+    console.log(result.message);
+  } else {
+    if (berhasilMendapatkanTokenBaru) {
+      window.location.href = "index.html";
+    }
+  }
 }
