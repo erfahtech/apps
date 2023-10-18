@@ -14,14 +14,14 @@ const spinner = new Spinner({
 
 // Fungsi untuk menampilkan animasi loading
 function showLoading() {
-  const target = document.getElementById("buttonlogin");
+  const target = document.getElementById("loading");
   spinner.spin(target);
   target.style.display = "block";
 }
 
 // Fungsi untuk menyembunyikan animasi loading
 function hideLoading() {
-  const target = document.getElementById("buttonlogin");
+  const target = document.getElementById("loading");
   spinner.stop();
   target.style.display = "none";
 }
