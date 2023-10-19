@@ -5,17 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const token = getCookie("token");
 
   // Mendapatkan URL sebelumnya dari local storage (jika ada)
-  const previousPageURL = localStorage.getItem("previousPageURL");
+  // const previousPageURL = localStorage.getItem("previousPageURL");
 
-  if (!token && previousPageURL) {
+  // Mengambil path saat ini
+  const currentPath = window.location.pathname;
+
+  if (!token && !currentPath.includes("/pages/auth/login.html")) {
     Swal.fire({
       icon: "warning",
       title: "Peringatan",
-      text: "Anda belum login !",
+      text: "Anda belum login!",
       confirmButtonText: "OK",
     }).then(() => {
-      const currentLocation = window.location.pathname;
-      if (currentLocation.includes("user")) {
+      if (currentPath.includes("/pages/user/")) {
         window.location.href = "../auth/login.html";
       } else {
         window.location.href = "pages/auth/login.html";
