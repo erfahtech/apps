@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Mendapatkan nilai cookie dengan nama "token" menggunakan fungsi getCookie
   const token = getCookie("token");
 
+  // Mendapatkan URL sebelumnya dari local storage (jika ada)
+  const previousPageURL = localStorage.getItem("previousPageURL");
+
   if (!token && previousPageURL) {
     Swal.fire({
       icon: "warning",
@@ -12,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       confirmButtonText: "OK",
     }).then(() => {
       // Redirect ke halaman login
-      window.location.href = erfahtech / apps / pages / auth / login.html;
+      window.location.href = "erfahtech/apps/pages/auth/login.html";
     });
   }
 });
