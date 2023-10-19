@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
     Swal.fire({
       icon: "warning",
       title: "Peringatan",
-      text: "Anda belum login. Kembali ke halaman sebelumnya.",
+      text: "Anda belum login !",
       confirmButtonText: "OK",
     }).then(() => {
       // Redirect ke halaman login
-      window.location.href = "https://github.com/erfahtech/apps/blob/main/pages/auth/login.html";
+      window.location.href = "https://github.com/erfahtech/apps/pages/auth/login.html";
     });
   }
 });
