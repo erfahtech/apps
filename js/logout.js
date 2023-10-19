@@ -1,3 +1,4 @@
+import { deleteCookie } from "https://jscroot.github.io/cookie/croot.js";
 // function logout() {
 //     document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 //     window.location.href = "./index.html";
@@ -14,8 +15,11 @@ function logout() {
       confirmButtonText: "Logout",
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem("token");
-        window.location.href = "../index.html";
+        // localStorage.removeItem("token");
+
+        deleteCookie("token");
+
+        window.location.href = "../../index.html";
       }
     });
   }
