@@ -14,8 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
       text: "Anda belum login !",
       confirmButtonText: "OK",
     }).then(() => {
-      // Redirect ke halaman login
-      window.location.href = "../../pages/auth/login.html";
+      const currentLocation = window.location.pathname;
+      if (currentLocation.includes("user")) {
+        window.location.href = "../auth/login.html";
+      } else {
+        window.location.href = "pages/auth/login.html";
+      }
     });
   }
 });
