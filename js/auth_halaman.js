@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
       text: "Anda belum login. Kembali ke halaman sebelumnya.",
       confirmButtonText: "OK",
     }).then(() => {
-      // Redirect ke halaman sebelumnya
-      window.location.href = previousPageURL;
+      // Redirect ke halaman login
+      window.location.href = "https://github.com/erfahtech/apps/blob/main/pages/auth/login.html";
     });
   }
 });
