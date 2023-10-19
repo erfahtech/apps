@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
       text: "Anda belum login !",
       confirmButtonText: "OK",
     }).then(() => {
-      window.location.href = "https://github.com/erfahtech/apps/pages/auth/login.html";
+      window.location.href = "https://erfahtech.github.io/apps/pages/auth/login.html";
     });
   } else if (token && previousPageURL) {
     Swal.fire({
