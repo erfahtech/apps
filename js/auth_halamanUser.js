@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       confirmButtonText: "OK",
     }).then(() => {
       // Redirect ke halaman login
-      window.location.href = "../auth/login.html";
+      window.location.href = "../../pages/auth/login.html";
     });
   }
 });
