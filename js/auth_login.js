@@ -1,31 +1,26 @@
-function auth_login(){
-    const token = localStorage.getItem("token");
-    console.log(token);
-    if (!token){
-        window.location.href = "login.html";
-    } else {
-        fetch("http://localhost:8080/auth", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": token
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.status === "success"){
-                console.log("Success");
-            } else {
-                window.location.href = "login.html";
-            }
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-            window.location.href = "login.html";
+document.addEventListener("DOMContentLoaded", function () {
+    const token = getCookie("token");
+  
+    // Jika tidak ada token, redirect ke halaman login.html
+    if (!token) {
+      // Jika tidak ada token, tampilkan SweetAlert dan redirect ke halaman login.html
+      if (!token) {
+        Swal.fire({
+          icon: "warning",
+          title: "Oops...",
+          text: "Anda belum login!",
+          confirmButtonText: "OK",
+        }).then(() => {
+          window.location.href = "login.html";
         });
+      }
     }
-}
-
-function redirect_login(){
-    window.location.href = "login.html";
-}
+  
+    // Fungsi untuk mendapatkan nilai cookie berdasarkan nama
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+  });
+  
