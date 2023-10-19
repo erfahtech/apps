@@ -1,26 +1,22 @@
+import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+
 document.addEventListener("DOMContentLoaded", function () {
-    const token = getCookie("token");
-  
-    // Jika tidak ada token, redirect ke halaman login.html
-    if (!token) {
-      // Jika tidak ada token, tampilkan SweetAlert dan redirect ke halaman login.html
-      if (!token) {
-        Swal.fire({
-          icon: "warning",
-          title: "Oops...",
-          text: "Anda belum login!",
-          confirmButtonText: "OK",
-        }).then(() => {
-          window.location.href = "login.html";
-        });
-      }
-    }
-  
-    // Fungsi untuk mendapatkan nilai cookie berdasarkan nama
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(";").shift();
-    }
-  });
-  
+  // Mendapatkan nilai cookie dengan nama "token" menggunakan fungsi getCookie
+  const token = getCookie("token");
+
+  // Mendapatkan URL sebelumnya dari local storage (jika ada)
+  const previousPageURL = localStorage.getItem("previousPageURL");
+
+  // Jika ada token, kembalikan ke halaman sebelumnya
+  if (token && previousPageURL) {
+    Swal.fire({
+      icon: "info",
+      title: "Informasi",
+      text: "Anda sudah login. Kembali ke halaman sebelumnya.",
+      confirmButtonText: "OK",
+    }).then(() => {
+      // Redirect ke halaman sebelumnya
+      window.location.href = previousPageURL;
+    });
+  }
+});
