@@ -29,7 +29,7 @@ function responseData(result) {
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
         // Redirect to homePelamar.html setelah menekan OK pada SweetAlert
-        window.location.href = "pages/user/dashboard.html";
+        window.location.href = "dashboard.html";
       }
     });
   } else {
