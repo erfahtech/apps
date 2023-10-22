@@ -14,6 +14,16 @@ export default function postLogin() {
   postWithToken(target_url, tokenkey, tokenvalue, datainjson, responseData);
 }
 
+// Validasi isian tidak boleh kosong
+if (!email || !password) {
+  Swal.fire({
+    icon: "error",
+    title: "Login Failed",
+    text: "Please fill in all fields.",
+  });
+  return;
+}
+
 function responseData(result) {
   if (result.token) {
     // Jika memiliki token, simpan token di cookie
