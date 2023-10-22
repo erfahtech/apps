@@ -27,13 +27,8 @@ export default function postSignUp() {
 }
 
 function responseData(result) {
-  if (result.token) {
-    // Jika memiliki token, simpan token di cookie
-    // setCookieWithExpireHour("token", result.token, 2);
-    // Simpan pesan hasil respons di local storage
-    // localStorage.setItem("message", result.message);
-
-    // Tampilkan SweetAlert berhasil login
+  if (result) {
+    // Tampilkan SweetAlert berhasil signUp
     Swal.fire({
       icon: "success",
       title: "Login Successful",
@@ -44,7 +39,6 @@ function responseData(result) {
       }
     });
   } else {
-    // Jika tidak memiliki token, tampilkan SweetAlert pesan kesalahan
     Swal.fire({
       icon: "error",
       title: "Login Failed",
