@@ -5,6 +5,7 @@ import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.
 export default function postLogin() {
   let email = getValue("emaillogin");
   let password = getValue("passwordlogin");
+  const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
 
   // Validate that email and password are not empty
   if (!email || !password) {
@@ -16,6 +17,9 @@ export default function postLogin() {
     return;
   }
 
+  // Show the loading animation
+  loadingElement.style.display = "block";
+
   let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-post";
   let tokenkey = "token";
   let tokenvalue = "c49482e6de1fa07a349f354c2277e11bc7115297a40a1c09c52ef77b905d07c4";
@@ -24,7 +28,10 @@ export default function postLogin() {
     password: password,
   };
 
-  postWithToken(target_url, tokenkey, tokenvalue, datainjson, responseData);
+  postWithToken(target_url, tokenkey, tokenvalue, datainjson, responseData).finally(() => {
+    // Hide the loading animation when the request is done (whether successful or failed)
+    loadingElement.style.display = "none";
+  });
 }
 
 function responseData(result) {
