@@ -117,13 +117,35 @@
               >
                 Sign up
               </button>
+
+              <div id="loading" style="display: none">
+                <!-- Add your loading animation here, e.g., a spinner or progress bar -->
+                Loading...
+              </div>
             </div>
             <!-- End Form -->
           </div>
         </div>
       </div>
     </main>
+    <style>
+      #loading {
+        display: block;
+        text-align: center;
+        animation: blink 1s infinite alternate; /* Blink animation */
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1; /* Fully visible */
+        }
+        100% {
+          opacity: 0; /* Fully hidden */
+        }
+      }
+    </style>
   </body>
+
   <script src="../../node_modules/preline/dist/preline.js"></script>
   <script type="module" src="../../js/post-signup.js"></script>
   <script type="module" src="../../js/auth_login.js"></script>

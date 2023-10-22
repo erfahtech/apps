@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="../../images/fav-logo.png" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   </head>
 
   <body>
@@ -136,10 +135,9 @@
               </button>
 
               <!-- Buat elemen tempatkan animasi loading -->
-              <div id="loading" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
-                <div class="spinner-border text-success" style="width: 3rem; height: 3rem" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
+              <div id="loading" style="display: none">
+                <!-- Add your loading animation here, e.g., a spinner or progress bar -->
+                Loading...
               </div>
             </div>
 
@@ -181,6 +179,23 @@
         }
       });
     </script>
+
+    <style>
+      #loading {
+        display: block;
+        text-align: center;
+        animation: blink 1s infinite alternate; /* Blink animation */
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1; /* Fully visible */
+        }
+        100% {
+          opacity: 0; /* Fully hidden */
+        }
+      }
+    </style>
   </body>
   <script src="../../node_modules/preline/dist/preline.js"></script>
   <script type="module" src="../../js/post.js"></script>

@@ -5,6 +5,10 @@ export default function postSignUp() {
   let email = getValue("emailsignup");
   let username = getValue("usernamesignup");
   let password = getValue("passwordsignup");
+  const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
+
+  // Show the loading animation
+  loadingElement.style.display = "block";
 
   // Validasi isian tidak boleh kosong
   if (!email || !username || !password) {
@@ -13,6 +17,8 @@ export default function postSignUp() {
       title: "Signup Failed",
       text: "Please fill in all fields.",
     });
+    // Hide the loading animation in case of validation error
+    loadingElement.style.display = "none";
     return;
   }
 
@@ -37,6 +43,10 @@ export default function postSignUp() {
     .catch((error) => {
       // Handle errors (e.g., network issues)
       console.error("Error:", error);
+    })
+    .finally(() => {
+      // Hide the loading animation when the request is done (whether successful or failed)
+      loadingElement.style.display = "none";
     });
 }
 
@@ -46,7 +56,7 @@ function responseData(result) {
     Swal.fire({
       icon: "success",
       title: "SignUp Successful",
-      text: "You have successfully Sign up.",
+      text: "You have successfully signed up.",
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
         window.location.href = "login.html";
