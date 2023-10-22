@@ -9,6 +9,16 @@ export default function postSignUp() {
     password: getValue("passwordsignup"),
   };
 
+  // Validasi isian tidak boleh kosong
+  if (!email || !username || !password) {
+    Swal.fire({
+      icon: "error",
+      title: "Signup Failed",
+      text: "Please fill in all fields.",
+    });
+    return;
+  }
+
   fetch(target_url, {
     method: "POST",
     headers: {
