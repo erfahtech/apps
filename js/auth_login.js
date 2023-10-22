@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }).then(() => {
       // Redirect ke halaman sebelumnya
       window.location.href = previousPageURL;
+      //disable button
+      const loginButton = document.getElementById("buttonlogin");
+      loginButton.style.display = "none";
     });
   }
 });
