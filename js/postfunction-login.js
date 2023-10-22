@@ -67,7 +67,7 @@ function responseData(result) {
       text: "You have successfully logged in.",
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
-        window.location.href = "../user/dashboard.html";
+        window.location.href = "../user/dashboard1.html";
       }
     });
   } else {
