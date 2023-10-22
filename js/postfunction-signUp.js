@@ -2,12 +2,9 @@ import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 // import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
 
 export default function postSignUp() {
-  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertUser";
-  let datainjson = {
-    email: getValue("emailsignup"),
-    username: getValue("usernamesignup"),
-    password: getValue("passwordsignup"),
-  };
+  let email = getValue("emailsignup");
+  let username = getValue("usernamesignup");
+  let password = getValue("passwordsignup");
 
   // Validasi isian tidak boleh kosong
   if (!email || !username || !password) {
@@ -18,6 +15,13 @@ export default function postSignUp() {
     });
     return;
   }
+
+  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertUser";
+  let datainjson = {
+    email: email,
+    username: username,
+    password: password,
+  };
 
   fetch(target_url, {
     method: "POST",
