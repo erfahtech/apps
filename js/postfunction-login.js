@@ -3,12 +3,25 @@ import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
 
 export default function postLogin() {
+  let email = getValue("emaillogin");
+  let password = getValue("passwordlogin");
+
+  // Validate that email and password are not empty
+  if (!email || !password) {
+    Swal.fire({
+      icon: "error",
+      title: "Login Failed",
+      text: "Please fill in both email and password fields.",
+    });
+    return;
+  }
+
   let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-post";
   let tokenkey = "token";
   let tokenvalue = "c49482e6de1fa07a349f354c2277e11bc7115297a40a1c09c52ef77b905d07c4";
   let datainjson = {
-    email: getValue("emaillogin"),
-    password: getValue("passwordlogin"),
+    email: email,
+    password: password,
   };
 
   postWithToken(target_url, tokenkey, tokenvalue, datainjson, responseData);
