@@ -31,8 +31,8 @@ function responseData(result) {
     // Tampilkan SweetAlert berhasil signUp
     Swal.fire({
       icon: "success",
-      title: "Login Successful",
-      text: "You have successfully logged in.",
+      title: "SifgnUp Successful",
+      text: "You have successfully Sign up.",
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
         window.location.href = "login.html";
@@ -41,7 +41,7 @@ function responseData(result) {
   } else {
     Swal.fire({
       icon: "error",
-      title: "Login Failed",
+      title: "Signup Failed",
       text: result.message,
     });
   }
