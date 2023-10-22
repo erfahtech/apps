@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup form</title>
     <link rel="shortcut icon" href="../../images/fav-logo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
   </head>
 
@@ -38,7 +39,6 @@
             <div class="overflow-hidden overflow-y-auto max-h-[75vh] scrollbar-y">
               <div class="text-center flex flex-col gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
                 <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-white dark:hover:text-white" href="../../index.html" aria-current="page"> Home </a>
-
                 <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" href="signup.html"> Sign Up </a>
                 <a class="font-medium text-white hover:text-white py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" href="login.html"> Login </a>
               </div>
@@ -65,114 +65,68 @@
 
           <div class="mt-5">
             <!-- Form -->
-            <form>
-              <div class="grid gap-y-4">
-                <!-- Form Group -->
-                <div>
-                  <label for="email" class="block text-sm mb-2 dark:text-white">Email address</label>
-                  <div class="relative">
-                    <input
-                      type="email"
-                      id="emailsignup"
-                      name="email"
-                      class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
-                      required
-                      aria-describedby="email-error"
-                    />
-                    <div class="hidden absolute inset-y-0 right-0 flex items-center pointer-events-none pr-3">
-                      <svg class="h-5 w-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email address so we can get back to you</p>
-                </div>
-                <!-- End Form Group -->
-
-                <!-- Form Group -->
-                <div>
-                  <label for="Username" class="block text-sm mb-2 dark:text-white">Username</label>
-                  <div class="relative">
-                    <input
-                      type="text"
-                      id="username"
-                      name="username"
-                      class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
-                    />
+            <div class="grid gap-y-4">
+              <!-- Form Group -->
+              <div>
+                <label for="email" class="block text-sm mb-2 dark:text-white">Email address</label>
+                <div class="relative">
+                  <input
+                    type="email"
+                    id="emailsignup"
+                    name="email"
+                    class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
+                    required
+                    aria-describedby="email-error"
+                  />
+                  <div class="hidden absolute inset-y-0 right-0 flex items-center pointer-events-none pr-3">
+                    <svg class="h-5 w-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                    </svg>
                   </div>
                 </div>
-                <!-- End Form Group -->
-
-                <!-- Form Group -->
-                <div>
-                  <label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
-                  <div class="relative">
-                    <input
-                      type="password"
-                      id="passwordsignup"
-                      name="password"
-                      class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
-                      required
-                      aria-describedby="password-error"
-                    />
-                    <div class="hidden absolute inset-y-0 right-0 flex items-center pointer-events-none pr-3">
-                      <svg class="h-5 w-5 text-red-500" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p class="hidden text-xs text-red-600 mt-2" id="password-error">8+ characters required</p>
-                </div>
-                <!-- End Form Group -->
-
-                <!-- Form Group
-                            <div>
-                                <label for="confirm-password" class="block text-sm mb-2 dark:text-white">Confirm
-                                    Password</label>
-                                <div class="relative">
-                                    <input type="password" id="confirm-password" name="confirm-password"
-                                        class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
-                                        required aria-describedby="confirm-password-error">
-                                    <div
-                                        class="hidden absolute inset-y-0 right-0 flex items-center pointer-events-none pr-3">
-                                        <svg class="h-5 w-5 text-red-500" width="16" height="16" fill="currentColor"
-                                            viewBox="0 0 16 16" aria-hidden="true">
-                                            <path
-                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p class="hidden text-xs text-red-600 mt-2" id="confirm-password-error">Password does
-                                    not match the password</p>
-                            </div> -->
-                <!-- End Form Group -->
-
-                <!-- Checkbox -->
-                <div class="flex items-center">
-                  <div class="flex">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                    />
-                  </div>
-                  <div class="ml-3">
-                    <label for="remember-me" class="text-sm dark:text-white">I accept the <a class="text-blue-600 decoration-2 hover:underline font-medium" href="#">Terms and Conditions</a></label>
-                  </div>
-                </div>
-                <!-- End Checkbox -->
-
-                <button
-                  type="submit"
-                  id="buttonsignup"
-                  name="buttonsignup"
-                  class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-                >
-                  Sign up
-                </button>
+                <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email address so we can get back to you</p>
               </div>
-            </form>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div>
+                <label for="Username" class="block text-sm mb-2 dark:text-white">Username</label>
+                <div class="relative">
+                  <input
+                    type="text"
+                    id="usernamesignup"
+                    name="username"
+                    class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
+                  />
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div>
+                <label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
+                <div class="relative">
+                  <input
+                    type="password"
+                    id="passwordsignup"
+                    name="password"
+                    class="w-full h-14 block leading-5 relative pt-2 px-4 rounded-t text-gray-800 bg-gray-100 dark:bg-gray-700 border-b focus:border-b-2 border-gray-500 dark:border-gray-400 overflow-x-auto focus:outline-none focus:border-primary-600 focus:ring-0 dark:text-gray-200 dark:focus:border-primary-200 peer"
+                    required
+                    aria-describedby="password-error"
+                  />
+                </div>
+                <p class="hidden text-xs text-red-600 mt-2" id="password-error">8+ characters required</p>
+              </div>
+
+              <button
+                type="submit"
+                id="buttonsignup"
+                name="buttonsignup"
+                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+              >
+                Sign up
+              </button>
+            </div>
             <!-- End Form -->
           </div>
         </div>
@@ -180,4 +134,6 @@
     </main>
   </body>
   <script src="../../node_modules/preline/dist/preline.js"></script>
+  <script type="module" src="../../js/post-signup.js"></script>
+  <script type="module" src="../../js/auth_login.js"></script>
 </html>
