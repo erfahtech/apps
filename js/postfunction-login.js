@@ -28,10 +28,25 @@ export default function postLogin() {
     password: password,
   };
 
-  postWithToken(target_url, tokenkey, tokenvalue, datainjson, responseData).finally(() => {
-    // Hide the loading animation when the request is done (whether successful or failed)
-    loadingElement.style.display = "none";
-  });
+  fetch(target_url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(datainjson),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      responseData(result);
+    })
+    .catch((error) => {
+      // Handle errors (e.g., network issues)
+      console.error("Error:", error);
+    })
+    .finally(() => {
+      // Hide the loading animation when the request is done (whether successful or failed)
+      loadingElement.style.display = "none";
+    });
 }
 
 function responseData(result) {
