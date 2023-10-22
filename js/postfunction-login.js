@@ -6,7 +6,9 @@ export default function postLogin() {
   let email = getValue("emaillogin");
   let password = getValue("passwordlogin");
   const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
+  const loginButton = document.getElementById("buttonlogin"); // Get the login button by its ID
 
+  loginButton.disabled = true; // Disable the login button
   // Validate that email and password are not empty
   if (!email || !password) {
     Swal.fire({
@@ -14,6 +16,7 @@ export default function postLogin() {
       title: "Login Failed",
       text: "Please fill in both email and password fields.",
     });
+    loginButton.disabled = false; // Enable the login button
     return;
   }
 
