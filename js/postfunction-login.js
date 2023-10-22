@@ -5,10 +5,16 @@ import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.
 export default function postLogin() {
   let email = getValue("emaillogin");
   let password = getValue("passwordlogin");
-  const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
+  const loadingElement = document.getElementById("loading");
   const loginButton = document.getElementById("buttonlogin"); // Get the login button by its ID
 
-  loginButton.disabled = true; // Disable the login button
+  // Check local storage to determine if the button should be disabled
+  const isButtonDisabled = localStorage.getItem("loginButtonDisabled") === "true";
+
+  if (isButtonDisabled) {
+    loginButton.disabled = true;
+  }
+
   // Validate that email and password are not empty
   if (!email || !password) {
     Swal.fire({
@@ -16,7 +22,8 @@ export default function postLogin() {
       title: "Login Failed",
       text: "Please fill in both email and password fields.",
     });
-    loginButton.disabled = false; // Enable the login button
+    // Store the button's disabled state in local storage
+    localStorage.setItem("loginButtonDisabled", "true");
     return;
   }
 
