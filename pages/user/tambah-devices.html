@@ -24,6 +24,26 @@
         <button onclick="postDevices()" type="submit" class="bg-blue-500 text-white p-2 px-4 rounded-md hover:bg-blue-700">Tambah</button>
       </div>
     </div>
+    <div id="loading" style="display: none">
+      <!-- Add your loading animation here, e.g., a spinner or progress bar -->
+      Loading...
+    </div>
+    <style>
+      #loading {
+        display: block;
+        text-align: center;
+        animation: blink 1s infinite alternate; /* Blink animation */
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1; /* Fully visible */
+        }
+        100% {
+          opacity: 0; /* Fully hidden */
+        }
+      }
+    </style>
   </body>
 
   <script type="module" src="../../js/post-devices.js"></script>
