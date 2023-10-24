@@ -28,8 +28,9 @@ export default function postLogin() {
     password: password,
   };
 
-  postWithToken(target_url, tokenkey, tokenvalue, datainjson, responseData);
-  loadingElement.style.display = "none";
+  postWithToken(target_url, tokenkey, tokenvalue, datainjson, responseData, () => {
+    loadingElement.style.display = "none";
+  });
 }
 
 function responseData(result) {
