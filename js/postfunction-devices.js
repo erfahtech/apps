@@ -1,20 +1,19 @@
 import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
-// import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 export default function postSignUp() {
-  let email = getValue("emailsignup");
-  let username = getValue("usernamesignup");
-  let password = getValue("passwordsignup");
+  let nama = getValue("isiNama");
+  let topic = getValue("isiTopic");
   const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
 
   // Show the loading animation
   loadingElement.style.display = "block";
 
   // Validasi isian tidak boleh kosong
-  if (!email || !username || !password) {
+  if (!nama || !topic) {
     Swal.fire({
       icon: "error",
-      title: "Signup Failed",
+      title: "Gagal Menambahkan Device",
       text: "Please fill in all fields.",
     });
     // Hide the loading animation in case of validation error
@@ -22,11 +21,11 @@ export default function postSignUp() {
     return;
   }
 
-  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertUser";
+  let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-insertDevice";
   let datainjson = {
-    email: email,
-    username: username,
-    password: password,
+    name: nama,
+    topic: topic,
+    user: getCookie("token"),
   };
 
   fetch(target_url, {
@@ -55,18 +54,20 @@ function responseData(result) {
     // Tampilkan SweetAlert berhasil signUp
     Swal.fire({
       icon: "success",
-      title: "SignUp Successful",
-      text: "You have successfully signed up.",
+      title: "Tambah Device Berhasil",
+      text: "You have successfully",
     }).then((result) => {
       if (result.isConfirmed || result.isDismissed) {
-        window.location.href = "login.html";
+        window.location.href = "dashboard.html";
       }
     });
   } else {
     Swal.fire({
       icon: "error",
-      title: "Signup Failed",
+      title: "Tambah Device Gagal",
       text: result.message,
     });
   }
 }
+
+console.log(getCookie("token"));
