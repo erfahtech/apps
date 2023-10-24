@@ -2,7 +2,7 @@ import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
 
 export default function postSignUp() {
-  let nama = getValue("isiNama");
+  let nama = getValue("isiName");
   let topic = getValue("isiTopic");
   const loadingElement = document.getElementById("loading"); // Get the loading element by its ID
 
