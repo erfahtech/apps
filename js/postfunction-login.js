@@ -1,5 +1,5 @@
-import { postWithToken } from "https://jscroot.github.io/api/croot.js";
-import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
+// import { postWithToken } from "https://jscroot.github.io/api/croot.js";
+// import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
 
 export default function postLogin() {
@@ -21,8 +21,8 @@ export default function postLogin() {
   loadingElement.style.display = "block";
   // Simulate a loading delay (you can adjust the time as needed)
   let target_url = "https://asia-southeast2-urse-project.cloudfunctions.net/urse-post";
-  let tokenkey = "token";
-  let tokenvalue = "c49482e6de1fa07a349f354c2277e11bc7115297a40a1c09c52ef77b905d07c4";
+  // let tokenkey = "token";
+  // let tokenvalue = "c49482e6de1fa07a349f354c2277e11bc7115297a40a1c09c52ef77b905d07c4";
   let datainjson = {
     email: email,
     password: password,
